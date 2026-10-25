@@ -1,0 +1,73 @@
+# High-level build targets. Tools come from ocx.toml:
+#   ocx exec -- task <target>     (or `task <target>` in an ocx-activated shell)
+version: '3'
+
+vars:
+  PRESET: x64
+  BUILD_DIR: build/{{.PRESET}}
+  EXE_NAME: GuildWarsMapBrowser.exe
+
+tasks:
+  default:
+    desc: List available tasks
+    silent: true
+    cmds:
+      - task --list
+
+  configure:
+    desc: Generate the Visual Studio solution in {{.BUILD_DIR}}
+    sources:
+      - CMakeLists.txt
+      - CMakePresets.json
+      - cmake/*.cmake
+      - '**/CMakeLists.txt'
+    generates:
+      - '{{.BUILD_DIR}}/CMakeCache.txt'
+    cmds:
+      - cmake --preset {{.PRESET}}
+
+  build:debug:
+    desc: Build the Debug configuration
+    deps: [configure]
+    cmds:
+      - cmake --build --preset debug
+
+  build:release:
+    desc: Build the Release configuration
+    deps: [configure]
+    cmds:
+      - cmake --build --preset release
+
+  build:
+    desc: Alias for build:debug
+    cmds:
+      - task: build:debug
+
+  debug:
+    desc: Build Debug and start it
+    deps: [build:debug]
+    cmds:
+      - '{{.BUILD_DIR}}/bin/Debug/{{.EXE_NAME}}'
+
+  release:
+    desc: Build Release and start it
+    deps: [build:release]
+    cmds:
+      - '{{.BUILD_DIR}}/bin/Release/{{.EXE_NAME}}'
+
+  open:
+    desc: Open the generated solution in Visual Studio
+    deps: [configure]
+    cmds:
+      - cmake --open {{.BUILD_DIR}}
+
+  clean:
+    desc: Remove build outputs, keep the generated solution
+    cmds:
+      - cmake --build --preset debug --target clean
+      - cmake --build --preset release --target clean
+
+  clean:all:
+    desc: Delete the whole build directory
+    cmds:
+      - cmake -E rm -rf build

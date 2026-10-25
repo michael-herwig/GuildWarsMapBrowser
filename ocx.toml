@@ -1,0 +1,6 @@
+#:schema https://ocx.sh/schemas/project/v1.json
+# OCX project toolchain — managed by `ocx add` / `ocx remove`
+
+[tools]
+cmake = "ocx.sh/kitware/cmake:4"
+task = "ocx.sh/go-task/task:3"

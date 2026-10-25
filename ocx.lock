@@ -1,0 +1,32 @@
+[metadata]
+lock_version = 3
+declaration_hash_version = 1
+declaration_hash = "sha256:80a1f8f50b39fbf9a743f6ac7d1b0b2104b18f9c0269a9af877dffedea7fa9f8"
+generated_by = "ocx 0.6.5"
+generated_at = "2026-10-25T17:54:11Z"
+
+[[tool]]
+name = "cmake"
+group = "default"
+repository = "ocx.sh/kitware/cmake"
+
+[tool.platforms]
+"darwin/amd64" = "sha256:c8eeddc8508bab6b7d5828a02792fb87b437ee1968b19524602be1d7c139914f"
+"darwin/arm64" = "sha256:c8eeddc8508bab6b7d5828a02792fb87b437ee1968b19524602be1d7c139914f"
+"linux/amd64+libc.glibc" = "sha256:346d6761a9a1fb3200c9f030ce44585b782e6af6b5332575bbfb0403b1c1c9c8"
+"linux/arm64+libc.glibc" = "sha256:300cec3505d0e19ac591680fd03a72e717d5a1db34372228e927c64cba2d223a"
+"windows/amd64" = "sha256:255644b1cc30c117d00e7002c3924e1e1ef6515ef2ecb41e7a58220c53f70d8e"
+"windows/arm64" = "sha256:23c683daccca22a8c9553f32891ad9123fc565e85430cb61a6b89aa880f56db4"
+
+[[tool]]
+name = "task"
+group = "default"
+repository = "ocx.sh/go-task/task"
+
+[tool.platforms]
+"darwin/amd64" = "sha256:7e841de3b6787ba13e3265984782ae695031f3821fe328d21df7c979fbe061ca"
+"darwin/arm64" = "sha256:b12612c4c31f122bcb671f010c5213978ca9c50509d8989139238808ca0838a8"
+"linux/amd64" = "sha256:4a7497c53a1457df838b5b00708e6c60c5bdfb27f406e2d7f8a15e12f13a3031"
+"linux/arm64" = "sha256:6608d11c80aff37c102be66cb3f5e0dcefa2a457faca0f78b316634063f02a0b"
+"windows/amd64" = "sha256:627ff007505718bf09a78cc70f66f9bc9e6efc798e17fdde660899801c4899c2"
+"windows/arm64" = "sha256:3146e36c163498c561ef78f637899282a8884896dc25861fc0797a1bfed882f9"

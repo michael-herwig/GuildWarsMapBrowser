@@ -35,14 +35,9 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
-!SourceFiles/ThirdParty/
-!SourceFiles/ThirdParty/BASS/
-!SourceFiles/ThirdParty/BASS/Win32/
-!SourceFiles/ThirdParty/BASS/Win32/bass.dll
-!SourceFiles/ThirdParty/BASS/Win32/bass_fx.dll
-!SourceFiles/ThirdParty/BASS/x64/
-!SourceFiles/ThirdParty/BASS/x64/bass.dll
-!SourceFiles/ThirdParty/BASS/x64/bass_fx.dll
+# Vendored BASS binaries (matched by the bin/ and x64/ rules above)
+!/external/bass/bin/
+!/external/bass/bin/x64/
 
 # Visual Studio temp compilation artifacts that can leak into the repo
 enc_temp_folder/
@@ -378,8 +373,10 @@ FodyWeavers.xsd
 /imgui.ini
 /dat_browser_last_filepath.txt
 /bass.dll
-/SourceFiles/Consolidate-TextFiles.ps1
-/SourceFiles/consolidated_output.txt
-/tinytiff/TinyTIFF-4.0.1.0
+/external/tinytiff/TinyTIFF-4.0.1.0
 /.claude
 /nul
+
+# CMake / Task
+/build/
+/.task/
